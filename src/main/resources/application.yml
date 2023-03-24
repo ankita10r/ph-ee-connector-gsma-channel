@@ -1,0 +1,45 @@
+camel:
+  server-port: 5001
+  host: "https://webhook.site/0d1bcf85-f42a-462e-809f-b1d4dca2a0cc" # Host URL for callback
+  springboot:
+    main-run-controller: true
+  dataformat:
+    json-jackson:
+      auto-discover-object-mapper: true
+
+bpmn:
+  flows:
+    some-flow: "SomeFlow-DFSPID"
+    gsma-base-transaction: "gsma_base_transaction-{dfspid}"
+    gsma-int-transfer: "gsma_int_transfer"
+    gsma-payee-process: "gsma_payee_process"
+    gsma-bill-payment: "gsma_bill_payment"
+    gsma-link-based-payment: "gsma_link_transfer"
+    international-remittance-payee: "international_remittance_payee_process-{dfspid}"
+    international-remittance-payer: "international_remittance_payer_process-{dfspid}"
+
+zeebe:
+  client:
+    max-execution-threads: 100
+    number-of-workers: 8
+    evenly-allocated-max-jobs: "#{${zeebe.client.max-execution-threads} / ${zeebe.client.number-of-workers}}"
+    ttl: 30000
+  broker:
+    contactpoint: "127.0.0.1:26500"
+
+server:
+  port: 8080
+
+
+dfspids: "gorilla,rhino"
+
+gsma:
+  payee:
+    tenant: "lion"
+
+
+  springdoc:
+    writer-with-order-by-keys: true
+
+
+transaction-id-length: -1

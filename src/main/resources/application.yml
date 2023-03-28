@@ -1,5 +1,5 @@
 camel:
-  server-port: 5001
+  server-port: 5000
   host: "https://webhook.site/0d1bcf85-f42a-462e-809f-b1d4dca2a0cc" # Host URL for callback
   springboot:
     main-run-controller: true
@@ -38,8 +38,8 @@ gsma:
     tenant: "lion"
 
 
-  springdoc:
-    writer-with-order-by-keys: true
+springdoc:
+  writer-with-order-by-keys: true
 
 
 transaction-id-length: -1
